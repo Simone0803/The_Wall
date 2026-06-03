@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Wall - Broadcast Prototype</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="control-column">
+        <header class="show-header">
+          <div class="series-mark">THE WALL</div>
+          <div id="statusLine" class="status-line">Vertical slice pronta</div>
+        </header>
+
+        <section class="bank-board" aria-label="Punteggio">
+          <div class="bank-label">BANK</div>
+          <div id="bankValue" class="bank-value">0 €</div>
+          <div class="bank-strip">
+            <span id="roundLabel">Setup</span>
+            <span id="questionLabel">Q0</span>
+          </div>
+        </section>
+
+        <section class="teams-panel" aria-label="Squadre">
+          <div class="section-title">Squadre</div>
+          <div id="teamScoreboards" class="team-scoreboards"></div>
+        </section>
+
+        <section class="question-panel" aria-label="Domanda">
+          <div class="panel-topline">
+            <span id="categoryLabel">Categoria</span>
+            <span id="difficultyLabel">Diff. --</span>
+          </div>
+          <h1 id="questionPrompt">Avvia una partita per iniziare il Free Fall.</h1>
+          <div id="answerGrid" class="answer-grid" aria-label="Risposte"></div>
+        </section>
+
+        <section class="stage-panel" aria-label="Controlli palco">
+          <div class="section-title">Drop zone</div>
+          <div id="dropZoneGrid" class="drop-zone-grid"></div>
+          <div class="section-title">Rischio</div>
+          <div class="risk-row">
+            <button id="normalMode" class="mode-button is-active" type="button">1 Ball</button>
+            <button id="doubleMode" class="mode-button" type="button">Double</button>
+            <button id="tripleMode" class="mode-button" type="button">Triple</button>
+            <button id="wallMode" class="mode-button" type="button">Wall-to-Wall</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="wall-stage" aria-label="Muro di gioco">
+        <canvas id="wallCanvas" width="1040" height="1240"></canvas>
+        <div class="camera-hud">
+          <span id="cameraCue">CAM A / WIDE</span>
+          <span id="physicsCue">PHYS 240HZ</span>
+        </div>
+      </section>
+
+      <section class="operator-column">
+        <section id="teamSetupCard" class="team-setup-card">
+          <div class="section-title">Setup show</div>
+          <label class="setup-label" for="teamCountSelect">Squadre in gara</label>
+          <select id="teamCountSelect" class="team-count-select">
+            <option value="1">1 squadra</option>
+            <option value="2" selected>2 squadre</option>
+            <option value="3">3 squadre</option>
+            <option value="4">4 squadre</option>
+          </select>
+          <div id="teamNameFields" class="team-name-fields"></div>
+        </section>
+
+        <section class="show-control-card">
+          <div class="section-title">Partita</div>
+          <button id="startButton" class="primary-action" type="button">Avvia partita</button>
+          <button id="autoPlayButton" class="secondary-action" type="button">Auto drop demo</button>
+          <button id="nextTeamButton" class="secondary-action" type="button">Passa squadra</button>
+          <button id="resetButton" class="secondary-action" type="button">Reset</button>
+        </section>
+
+        <section class="host-card" aria-label="Conduttore">
+          <img src="./assets/gerry-scotti-the-wall-2017.jpg" alt="Gerry Scotti nello studio di The Wall">
+          <div class="host-gradient"></div>
+          <div class="host-copy">
+            <span class="host-kicker">Edizione Italia</span>
+            <strong>Gerry Scotti</strong>
+            <span>Studio live / prime time</span>
+          </div>
+          <div class="host-badge">ON AIR</div>
+        </section>
+
+        <section id="contractPanel" class="operator-card contract-card is-hidden">
+          <div class="section-title">Contratto</div>
+          <div id="contractValue" class="contract-value">0 €</div>
+          <div class="contract-actions">
+            <button id="signContractButton" class="primary-action" type="button">Firma</button>
+            <button id="tearContractButton" class="danger-action" type="button">Strappa</button>
+          </div>
+        </section>
+
+        <details class="operator-tools">
+          <summary>Regia tecnica</summary>
+          <section class="operator-card admin-card">
+            <div class="section-title">Domande</div>
+            <div id="questionStats" class="mini-readout">0 domande caricate</div>
+            <label class="file-import">
+              Import JSON
+              <input id="questionImport" type="file" accept="application/json">
+            </label>
+            <button id="exportQuestionsButton" class="secondary-action" type="button">Export JSON</button>
+          </section>
+          <section class="operator-card">
+            <div class="section-title">Replay ledger</div>
+            <pre id="ledgerLog" class="ledger-log"></pre>
+          </section>
+        </details>
+      </section>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

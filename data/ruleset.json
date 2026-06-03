@@ -1,0 +1,44 @@
+{
+  "rulesetId": "IT_GerryScotti_2017_2018",
+  "currency": "EUR",
+  "dropZones": 7,
+  "slots": 15,
+  "bankFloor": 0,
+  "contractBonusPerCorrectAnswer": 2500,
+  "rounds": {
+    "freeFall": {
+      "label": "Free Fall",
+      "questions": 5,
+      "choices": 4,
+      "ballsPerQuestion": 3,
+      "allowManualDropZones": true,
+      "allowedBallCounts": [1, 2, 3, 7],
+      "defaultDropZones": [1, 4, 7],
+      "slotValues": [1, 500, 100, 2000, 10, 1000, 1, 5000, 1, 1000, 10, 2000, 100, 500, 1]
+    },
+    "round2": {
+      "label": "Round 2 - Isolation",
+      "questions": 3,
+      "choices": 4,
+      "openingGreenBalls": 2,
+      "openingDropZones": [3, 5],
+      "allowManualDropZones": true,
+      "allowedBallCounts": [1, 2, 3, 7],
+      "questionBallCounts": [1, 2, 3],
+      "wallToWallEnabled": true,
+      "closingRedMirrorsOpening": true,
+      "slotValues": [1, 1000, 100, 2000, 10, 5000, 1, 10000, 1, 20000, 10, 25000, 100, 50000, 1]
+    },
+    "round3": {
+      "label": "Final Round",
+      "questions": 3,
+      "choices": 4,
+      "openingGreenBalls": 4,
+      "openingDropZones": [2, 3, 5, 6],
+      "allowManualDropZones": true,
+      "allowedBallCounts": [1, 2, 3, 7],
+      "questionBallCounts": [1, 2, 3],
+      "slotValues": [1, 5000, 100, 10000, 10, 20000, 1, 30000, 1, 40000, 10, 50000, 100, 100000, 1]
+    }
+  }
+}

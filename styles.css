@@ -1,0 +1,553 @@
+:root {
+  color-scheme: dark;
+  --bg: #05070b;
+  --panel: rgba(10, 17, 26, 0.86);
+  --panel-strong: rgba(5, 12, 20, 0.96);
+  --line: rgba(64, 190, 255, 0.34);
+  --text: #f7fbff;
+  --muted: #9eb6c7;
+  --blue: #16a7ff;
+  --green: #27f07a;
+  --red: #ff2d4f;
+  --gold: #ffd66b;
+  --hot: #ff356f;
+  --slot: #0f2537;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--text);
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(circle at 51% 8%, rgba(77, 213, 255, 0.34), transparent 20%),
+    linear-gradient(110deg, rgba(255, 53, 111, 0.16) 0%, transparent 28%),
+    linear-gradient(250deg, rgba(255, 214, 107, 0.2) 0%, transparent 30%),
+    repeating-linear-gradient(90deg, rgba(22, 167, 255, 0.07) 0 1px, transparent 1px 76px),
+    linear-gradient(180deg, #08182b 0%, var(--bg) 48%, #010205 100%);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 1px solid rgba(130, 214, 255, 0.34);
+  color: var(--text);
+  background: rgba(20, 38, 55, 0.78);
+  cursor: pointer;
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease, box-shadow 140ms ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+button:not(:disabled):hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 18px rgba(22, 167, 255, 0.22);
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(300px, 24vw) 1fr minmax(280px, 22vw);
+  gap: 14px;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  padding: 14px;
+}
+
+.control-column,
+.operator-column {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2;
+}
+
+.show-header,
+.bank-board,
+.question-panel,
+.teams-panel,
+.stage-panel,
+.team-setup-card,
+.show-control-card,
+.operator-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(13, 31, 49, 0.88) 0%, rgba(2, 7, 12, 0.94) 100%),
+    radial-gradient(circle at 50% 0%, rgba(255, 214, 107, 0.12), transparent 58%);
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, 0.32),
+    inset 0 0 24px rgba(22, 167, 255, 0.08);
+}
+
+.show-header {
+  padding: 10px 16px;
+}
+
+.series-mark {
+  font-size: clamp(30px, 3.8vw, 56px);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 0.92;
+  color: #ffffff;
+  text-shadow:
+    0 0 14px rgba(255, 255, 255, 0.52),
+    0 0 28px rgba(22, 167, 255, 0.76),
+    0 0 48px rgba(255, 53, 111, 0.36);
+}
+
+.status-line {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.bank-board {
+  padding: 12px 16px;
+  border-color: rgba(255, 214, 107, 0.38);
+}
+
+.bank-label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.bank-value {
+  margin-top: 2px;
+  font-size: clamp(34px, 4.2vw, 62px);
+  font-variant-numeric: tabular-nums;
+  font-weight: 900;
+  line-height: 0.98;
+  color: #ffffff;
+  text-shadow: 0 0 18px rgba(255, 214, 107, 0.46);
+}
+
+.bank-value.is-positive {
+  color: var(--gold);
+}
+
+.bank-value.is-loss {
+  color: var(--red);
+}
+
+.bank-strip {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.question-panel {
+  padding: 12px 14px;
+  flex: 1 1 188px;
+  min-height: 184px;
+  overflow: hidden;
+}
+
+.panel-topline,
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+#questionPrompt {
+  margin: 10px 0;
+  min-height: 46px;
+  font-size: clamp(17px, 1.35vw, 22px);
+  line-height: 1.16;
+  letter-spacing: 0;
+}
+
+.answer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.answer-button {
+  min-height: 41px;
+  border-radius: 6px;
+  padding: 9px 10px;
+  text-align: left;
+  font-weight: 800;
+  line-height: 1.12;
+}
+
+.answer-button.is-correct {
+  border-color: rgba(39, 240, 122, 0.9);
+  background: rgba(39, 240, 122, 0.2);
+}
+
+.answer-button.is-wrong {
+  border-color: rgba(255, 45, 79, 0.9);
+  background: rgba(255, 45, 79, 0.18);
+}
+
+.stage-panel {
+  padding: 10px 16px;
+}
+
+.teams-panel {
+  padding: 10px 12px;
+}
+
+.team-scoreboards {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+  max-height: 134px;
+  overflow: auto;
+}
+
+.team-score-card {
+  --team-color: var(--gold);
+  display: grid;
+  gap: 2px;
+  min-height: 64px;
+  padding: 9px 10px;
+  border-radius: 6px;
+  border-color: color-mix(in srgb, var(--team-color) 62%, transparent);
+  text-align: left;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--team-color) 22%, transparent), rgba(13, 30, 47, 0.78)),
+    rgba(5, 12, 20, 0.88);
+}
+
+.team-score-card.is-active {
+  box-shadow: 0 0 20px color-mix(in srgb, var(--team-color) 38%, transparent);
+  transform: translateY(-1px);
+}
+
+.team-score-name,
+.team-score-card small,
+.team-score-card span:last-child {
+  color: #bfe5f7;
+  font-size: 11px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.team-score-card strong {
+  color: #ffffff;
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.stage-panel .section-title::after {
+  content: "LIVE CONTROL";
+  color: rgba(255, 214, 107, 0.82);
+  font-size: 10px;
+}
+
+.drop-zone-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin: 8px 0 12px;
+}
+
+.drop-zone-button {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  font-weight: 900;
+}
+
+.drop-zone-button.is-active {
+  border-color: rgba(255, 214, 107, 0.95);
+  background: rgba(255, 214, 107, 0.2);
+  color: var(--gold);
+}
+
+.risk-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.mode-button,
+.primary-action,
+.secondary-action,
+.danger-action,
+.file-import {
+  min-height: 41px;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.mode-button.is-active {
+  border-color: rgba(255, 214, 107, 0.9);
+  background: linear-gradient(180deg, rgba(255, 214, 107, 0.28), rgba(22, 167, 255, 0.16));
+  color: #fff5c9;
+}
+
+.primary-action {
+  background: linear-gradient(180deg, rgba(255, 214, 107, 0.92), rgba(185, 111, 28, 0.94));
+  color: #160b01;
+  border-color: rgba(255, 232, 160, 0.9);
+}
+
+.danger-action {
+  background: linear-gradient(180deg, rgba(255, 45, 79, 0.95), rgba(130, 0, 23, 0.98));
+  border-color: rgba(255, 128, 146, 0.92);
+}
+
+.secondary-action,
+.file-import {
+  width: 100%;
+  display: block;
+  margin-top: 8px;
+}
+
+.file-import input {
+  display: none;
+}
+
+.wall-stage {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(100, 199, 255, 0.22);
+  border-radius: 8px;
+  background: #02060a;
+  box-shadow:
+    inset 0 0 70px rgba(22, 167, 255, 0.1),
+    inset 0 0 120px rgba(255, 53, 111, 0.04),
+    0 0 58px rgba(0, 0, 0, 0.35);
+}
+
+#wallCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.camera-hud {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  color: rgba(235, 248, 255, 0.8);
+  font-size: 12px;
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(22, 167, 255, 0.6);
+}
+
+.operator-card,
+.team-setup-card,
+.show-control-card {
+  padding: 14px;
+}
+
+.team-setup-card {
+  border-color: rgba(255, 214, 107, 0.34);
+}
+
+.setup-label {
+  display: block;
+  margin: 10px 0 6px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.team-count-select,
+.team-name-input {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid rgba(130, 214, 255, 0.34);
+  border-radius: 6px;
+  padding: 8px 10px;
+  color: var(--text);
+  background: rgba(6, 19, 33, 0.94);
+}
+
+.team-name-fields {
+  display: grid;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.operator-card button,
+.show-control-card button {
+  width: 100%;
+}
+
+.host-card {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 248px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 214, 107, 0.46);
+  border-radius: 8px;
+  background: #090909;
+  box-shadow: 0 18px 56px rgba(0, 0, 0, 0.42), 0 0 34px rgba(255, 214, 107, 0.14);
+}
+
+.host-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  filter: saturate(1.08) contrast(1.08);
+}
+
+.host-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(1, 3, 7, 0.02) 26%, rgba(2, 5, 10, 0.88) 100%),
+    linear-gradient(90deg, rgba(22, 167, 255, 0.18), transparent 42%, rgba(255, 53, 111, 0.2));
+  pointer-events: none;
+}
+
+.host-copy {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  display: grid;
+  gap: 4px;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.92);
+}
+
+.host-kicker,
+.host-copy span:last-child {
+  color: #ccecff;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.host-copy strong {
+  color: #ffffff;
+  font-size: clamp(25px, 2.8vw, 42px);
+  font-weight: 950;
+  line-height: 0.95;
+}
+
+.host-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  color: #180300;
+  background: linear-gradient(180deg, #ffeb84, #ff8a2f);
+  font-size: 11px;
+  font-weight: 950;
+  box-shadow: 0 0 18px rgba(255, 214, 107, 0.46);
+}
+
+.operator-tools {
+  max-height: 44px;
+  overflow: hidden;
+  border: 1px solid rgba(115, 205, 255, 0.22);
+  border-radius: 8px;
+  background: rgba(5, 12, 20, 0.72);
+}
+
+.operator-tools[open] {
+  max-height: 48vh;
+  overflow: auto;
+}
+
+.operator-tools summary {
+  min-height: 42px;
+  padding: 12px 14px;
+  color: #d8f4ff;
+  cursor: pointer;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.operator-tools .operator-card {
+  margin: 0 10px 10px;
+  box-shadow: none;
+}
+
+.contract-card {
+  border-color: rgba(255, 214, 107, 0.54);
+}
+
+.contract-value {
+  margin: 10px 0;
+  color: var(--gold);
+  font-size: 35px;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.contract-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.mini-readout {
+  margin: 10px 0 2px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.ledger-log {
+  height: 150px;
+  min-height: 120px;
+  margin: 10px 0 0;
+  overflow: auto;
+  white-space: pre-wrap;
+  color: #bfe8ff;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.is-hidden {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  body {
+    overflow: auto;
+  }
+
+  .app-shell {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .wall-stage {
+    height: 760px;
+    order: -1;
+  }
+}

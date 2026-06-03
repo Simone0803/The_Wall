@@ -1,0 +1,178 @@
+[
+  {
+    "id": "ff_001",
+    "locale": "it-IT",
+    "category": "Geografia",
+    "difficulty": 0.22,
+    "roundCompatibility": ["freeFall"],
+    "prompt": "Quale citta e capitale della Francia?",
+    "answers": [
+      {"id": "a", "text": "Parigi"},
+      {"id": "b", "text": "Marsiglia"},
+      {"id": "c", "text": "Lione"},
+      {"id": "d", "text": "Nizza"}
+    ],
+    "correctAnswerId": "a",
+    "status": "approved"
+  },
+  {
+    "id": "ff_002",
+    "locale": "it-IT",
+    "category": "Cinema",
+    "difficulty": 0.32,
+    "roundCompatibility": ["freeFall"],
+    "prompt": "Nel film Titanic, la nave attraversa quale oceano?",
+    "answers": [
+      {"id": "a", "text": "Atlantico"},
+      {"id": "b", "text": "Pacifico"},
+      {"id": "c", "text": "Indiano"},
+      {"id": "d", "text": "Artico"}
+    ],
+    "correctAnswerId": "a",
+    "status": "approved"
+  },
+  {
+    "id": "ff_003",
+    "locale": "it-IT",
+    "category": "Scienza",
+    "difficulty": 0.3,
+    "roundCompatibility": ["freeFall"],
+    "prompt": "A pressione atmosferica standard, a quale temperatura bolle l'acqua?",
+    "answers": [
+      {"id": "a", "text": "100 gradi Celsius"},
+      {"id": "b", "text": "50 gradi Celsius"},
+      {"id": "c", "text": "75 gradi Celsius"},
+      {"id": "d", "text": "120 gradi Celsius"}
+    ],
+    "correctAnswerId": "a",
+    "status": "approved"
+  },
+  {
+    "id": "ff_004",
+    "locale": "it-IT",
+    "category": "Sport",
+    "difficulty": 0.35,
+    "roundCompatibility": ["freeFall"],
+    "prompt": "In una partita di calcio standard, quanti giocatori ha una squadra in campo?",
+    "answers": [
+      {"id": "a", "text": "11"},
+      {"id": "b", "text": "9"},
+      {"id": "c", "text": "10"},
+      {"id": "d", "text": "12"}
+    ],
+    "correctAnswerId": "a",
+    "status": "approved"
+  },
+  {
+    "id": "ff_005",
+    "locale": "it-IT",
+    "category": "Musica",
+    "difficulty": 0.34,
+    "roundCompatibility": ["freeFall"],
+    "prompt": "Il pianoforte appartiene principalmente a quale famiglia sonora?",
+    "answers": [
+      {"id": "a", "text": "Corde percosse"},
+      {"id": "b", "text": "Fiati"},
+      {"id": "c", "text": "Ottoni"},
+      {"id": "d", "text": "Percussioni a membrana"}
+    ],
+    "correctAnswerId": "a",
+    "status": "approved"
+  },
+  {
+    "id": "r2_001",
+    "locale": "it-IT",
+    "category": "Storia",
+    "difficulty": 0.48,
+    "roundCompatibility": ["round2"],
+    "prompt": "In quale anno cadde il Muro di Berlino?",
+    "answers": [
+      {"id": "a", "text": "1987"},
+      {"id": "b", "text": "1989"},
+      {"id": "c", "text": "1991"},
+      {"id": "d", "text": "1993"}
+    ],
+    "correctAnswerId": "b",
+    "status": "approved"
+  },
+  {
+    "id": "r2_002",
+    "locale": "it-IT",
+    "category": "Scienza",
+    "difficulty": 0.55,
+    "roundCompatibility": ["round2"],
+    "prompt": "Quale pianeta del Sistema Solare ha il giorno piu lungo?",
+    "answers": [
+      {"id": "a", "text": "Venere"},
+      {"id": "b", "text": "Marte"},
+      {"id": "c", "text": "Giove"},
+      {"id": "d", "text": "Mercurio"}
+    ],
+    "correctAnswerId": "a",
+    "status": "approved"
+  },
+  {
+    "id": "r2_003",
+    "locale": "it-IT",
+    "category": "Arte",
+    "difficulty": 0.5,
+    "roundCompatibility": ["round2"],
+    "prompt": "Chi dipinse La nascita di Venere?",
+    "answers": [
+      {"id": "a", "text": "Caravaggio"},
+      {"id": "b", "text": "Botticelli"},
+      {"id": "c", "text": "Raffaello"},
+      {"id": "d", "text": "Tiziano"}
+    ],
+    "correctAnswerId": "b",
+    "status": "approved"
+  },
+  {
+    "id": "r3_001",
+    "locale": "it-IT",
+    "category": "Letteratura",
+    "difficulty": 0.64,
+    "roundCompatibility": ["round3"],
+    "prompt": "Quale autore scrisse Il nome della rosa?",
+    "answers": [
+      {"id": "a", "text": "Italo Calvino"},
+      {"id": "b", "text": "Umberto Eco"},
+      {"id": "c", "text": "Primo Levi"},
+      {"id": "d", "text": "Dario Fo"}
+    ],
+    "correctAnswerId": "b",
+    "status": "approved"
+  },
+  {
+    "id": "r3_002",
+    "locale": "it-IT",
+    "category": "Cinema",
+    "difficulty": 0.68,
+    "roundCompatibility": ["round3"],
+    "prompt": "Quale film vinse l'Oscar al miglior film nel 1998?",
+    "answers": [
+      {"id": "a", "text": "Titanic"},
+      {"id": "b", "text": "Shakespeare in Love"},
+      {"id": "c", "text": "La vita e bella"},
+      {"id": "d", "text": "Salvate il soldato Ryan"}
+    ],
+    "correctAnswerId": "a",
+    "status": "approved"
+  },
+  {
+    "id": "r3_003",
+    "locale": "it-IT",
+    "category": "Scienza",
+    "difficulty": 0.72,
+    "roundCompatibility": ["round3"],
+    "prompt": "Quale particella subatomica ha carica elettrica negativa?",
+    "answers": [
+      {"id": "a", "text": "Protone"},
+      {"id": "b", "text": "Neutrone"},
+      {"id": "c", "text": "Elettrone"},
+      {"id": "d", "text": "Fotone"}
+    ],
+    "correctAnswerId": "c",
+    "status": "approved"
+  }
+]
